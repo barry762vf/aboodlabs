@@ -17,6 +17,7 @@
     :root { --paper:#121214; --card:#1C1C20; --ink:#F2EFF6; --muted:#A9A4B0; --line:#F2EFF6; }
   }
   * { box-sizing:border-box; }
+  html, body { overflow-x:clip; }
   body { margin:0; background:var(--paper); color:var(--ink);
     font:17px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans",sans-serif; -webkit-text-size-adjust:100%; }
   main { max-width:680px; margin:0 auto; padding:28px 16px 56px; }
@@ -47,6 +48,7 @@
   .app img { width:52px; height:52px; border-radius:13px; flex:none; }
   .app b { display:block; font-size:17px; }
   .app span { color:var(--muted); font-size:15px; }
+  .app > div { min-width:0; }
   .tag { margin-left:auto; flex:none; font-size:12.5px; font-weight:700; padding:3px 10px; border-radius:99px;
     border:2px solid var(--line); white-space:nowrap; }
   footer { color:var(--muted); font-size:14.5px; margin-top:36px; }
