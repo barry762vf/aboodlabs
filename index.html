@@ -2,6 +2,16 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<script>
+  // The page opens in the phone's language: Arabic phones get the Arabic page, all others the English one.
+  // Someone who taps the language button keeps the language they chose.
+  (function () {
+    var here = 'en', chosen = null;
+    try { chosen = localStorage.getItem('lang'); } catch (e) {}
+    var want = chosen || (/^ar\b/i.test(navigator.language || '') ? 'ar' : 'en');
+    if (want !== here) location.replace('ar/' + location.search + location.hash);
+  })();
+</script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Abood Labs: free apps for Android</title>
 <meta name="description" content="Download the Abood Labs app to install medicalWay and the other free Abood Labs apps on your Android tablet or phone.">
@@ -96,6 +106,9 @@
 <script>
   // People on a computer or an iPhone are told where to open the page; the button still works for them.
   if (!/Android/i.test(navigator.userAgent)) document.getElementById('note').style.display = 'block';
+  document.querySelector('.brand a').addEventListener('click', function () {
+    try { localStorage.setItem('lang', 'ar'); } catch (e) {}
+  });
 </script>
 </body>
 </html>
